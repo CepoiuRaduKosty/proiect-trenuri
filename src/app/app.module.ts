@@ -10,6 +10,8 @@ import { PageReservationsComponent } from './page-reservations/page-reservations
 import { NavbarComponent } from './navbar/navbar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import {MatButtonModule} from '@angular/material/button';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    MatFormFieldModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
