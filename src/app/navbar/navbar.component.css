@@ -1,5 +1,6 @@
 .top-container {
     height: 10vh;
+    margin-bottom: 30px;
 
 }
 
@@ -26,4 +27,9 @@ button{
 
 button:hover{
     border-bottom: 2px solid white;
+}
+
+a, a:hover, a:visited{
+    color: white;
+    text-decoration: none;
 }
