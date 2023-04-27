@@ -1,0 +1,29 @@
+.top-container {
+    height: 10vh;
+
+}
+
+.img-trenulet{
+    background-image: url("../../assets/img-navbar-tren.jpg");
+    background-size: cover;
+    background-position-y: 275px;
+}
+
+.img-trenulet {
+    height: 60%;
+}
+
+mat-toolbar{
+    background-color: rgb(105,66,132);
+    color: white;
+}
+
+button{
+    font-size: 125%;
+    margin: 10px;
+    border-bottom: 2px solid rgb(105,66,132);
+}
+
+button:hover{
+    border-bottom: 2px solid white;
+}
