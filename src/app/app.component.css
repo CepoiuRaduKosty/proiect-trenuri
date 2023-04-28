@@ -1,0 +1,16 @@
+.content-wrapper{
+    background-color: rgb(55, 33, 70);
+    height: 87.9vh;
+    padding-top: 2vw;
+}
+
+.content{
+    background-color: white;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    height:100%;
+}
+
+app-navbar{
+    box-shadow:10px 0px black;
+}
