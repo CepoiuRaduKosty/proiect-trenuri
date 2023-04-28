@@ -1,0 +1,45 @@
+form{
+    text-align: center;
+}
+h1{
+    text-align: center;
+}
+
+.login-left-side{
+    display: inline-block;
+    height:300px;
+    order: 1;
+    flex-grow: 1;
+    flex-basis: auto;
+}
+
+.login-right-side{
+    padding: 20px;
+    display: inline-block;
+    height: 300px;
+    order: 2;
+    flex-grow: 1;
+    flex-basis: auto;
+    background-color: rgb(105,66,132);
+    background-image: url("../../assets/purpletrain.jpg");
+    background-position: right;
+}
+
+.purple-train-img{
+    height:100%;
+    border: 10px solid rgb(105,66,132);
+    border-radius: 5px;
+}
+
+.login-page-wrapper{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 0px;
+}
+
+button{
+    margin: 10px;
+}
