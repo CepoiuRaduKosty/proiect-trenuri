@@ -14,24 +14,24 @@ export class PageListComponent {
       start: 'sibiu',
       end: 'jina',
       tren: 'ir333',
-      dataPlecare: "2023-05-16T20:30:00.000Z",
-      dataSosire: "2023-05-16T20:30:00.000Z"
+      dataPlecare: new Date("2023-05-16T20:30:00.000Z"),
+      dataSosire: new Date("2023-05-16T20:30:00.000Z")
     },
     {
       id: 2,
       start: 'jina',
       end: 'sibiu',
       tren: 'ir444',
-      dataPlecare: "2023-05-17T20:30:00.000Z",
-      dataSosire: "2023-05-17T20:30:00.000Z"
+      dataPlecare: new Date("2023-05-17T20:30:00.000Z"),
+      dataSosire: new Date("2023-05-17T20:30:00.000Z")
     },
     {
       id: 3,
       start: 'bucuresti',
       end: 'ploiesti',
       tren: 'ir987',
-      dataPlecare: "2023-05-18T20:30:00.000Z",
-      dataSosire: "2023-05-18T20:30:00.000Z"
+      dataPlecare: new Date("2023-05-18T20:30:00.000Z"),
+      dataSosire: new Date("2023-05-18T20:30:00.000Z")
     }
   ];
   fetchedTable = false;
@@ -41,8 +41,8 @@ export class PageListComponent {
     let query: TraseuSearchQuery = event as TraseuSearchQuery;
     this.trasee = this.traseeFetched.filter((elem) => {
       let passed = true;
-      if(query.start != null && elem.start != query.start) passed = false;
-      if(query.end != null && elem.end != query.end) passed = false;
+      if(query.start != null && elem.start.toUpperCase() != query.start.toUpperCase() ) passed = false;
+      if(query.end != null && elem.end.toUpperCase()  != query.end.toUpperCase() ) passed = false;
       let _dataPlecare = new Date(elem.dataPlecare);
       let _dataSosire = new Date(elem.dataSosire);
       if(query.dataPlecareMin != null && _dataPlecare.valueOf() < query.dataPlecareMin.valueOf()) passed = false;

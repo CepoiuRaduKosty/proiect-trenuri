@@ -5,8 +5,8 @@ export type Traseu = {
     start: string,
     end: string,
     tren: string,
-    dataPlecare: string,
-    dataSosire: string
+    dataPlecare: Date,
+    dataSosire: Date
 }
 
 export type TraseuSearchQuery = {
