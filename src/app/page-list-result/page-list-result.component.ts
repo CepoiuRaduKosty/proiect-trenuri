@@ -1,11 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { Traseu } from '../tipuri';
 
-type Traseu{
-  id: number,
-  start: string,
-  end: string,
-  tren: string
-}
 
 
 @Component({

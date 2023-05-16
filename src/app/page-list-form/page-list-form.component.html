@@ -1,0 +1,63 @@
+<form>
+    <mat-form-field appearance="fill">
+        <mat-label>Start</mat-label>
+        <input matInput [(ngModel)]="start">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Destinatie</mat-label>
+        <input matInput [(ngModel)]="end">
+    </mat-form-field>
+    <mat-checkbox [checked]="false" [(ngModel)]="wantsAdvancedSearch" name="advancedSearchToggle">Cautare avansata</mat-checkbox>
+</form>
+<button mat-raised-button color="primary" (click)="onSend">Cauta</button>
+
+<form *ngIf="wantsAdvancedSearch">
+    <p>Data si ora plecarii, minim</p>
+    <mat-form-field>
+        <mat-label>Data plecarii minim</mat-label>
+        <input matInput [matDatepicker]="picker1" [(ngModel)]="dataPlecareMin">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Ora plecarii minim</mat-label>
+        <input matInput type="time" value="00:00" [(ngModel)]="oraPlecareMin">
+    </mat-form-field>
+    <p>Data si ora plecarii, maxim</p>
+    <mat-form-field>
+        <mat-label>Data plecarii maxim</mat-label>
+        <input matInput [matDatepicker]="picker2" [(ngModel)]="dataPlecareMax">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Ora plecarii maxim</mat-label>
+        <input matInput type="time" value="00:00" [(ngModel)]="oraPlecareMax">
+    </mat-form-field>
+    <p>Data si ora sosirii, minim</p>
+    <mat-form-field>
+        <mat-label>Data sosirii minim</mat-label>
+        <input matInput [matDatepicker]="picker3" [(ngModel)]="dataSosireMin">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker3"></mat-datepicker-toggle>
+        <mat-datepicker #picker3></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Ora sosirii minim</mat-label>
+        <input matInput type="time" value="00:00" [(ngModel)]="oraSosireMin">
+    </mat-form-field>
+    <p>Data si ora sosirii, maxim</p>
+    <mat-form-field>
+        <mat-label>Data sosirii maxim</mat-label>
+        <input matInput [matDatepicker]="picker4" [(ngModel)]="dataSosireMax">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker4"></mat-datepicker-toggle>
+        <mat-datepicker #picker4></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Ora sosirii maxim</mat-label>
+        <input matInput type="time" value="00:00" [(ngModel)]="oraSosireMax">
+    </mat-form-field>
+</form>

@@ -25,6 +25,9 @@ import { MatRadioModule } from '@angular/material/radio';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { PageListResultComponent } from './page-list-result/page-list-result.component';
+import { PageListFormComponent } from './page-list-form/page-list-form.component';
+import {MatCheckboxModule} from '@angular/material/checkbox'; 
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -34,7 +37,8 @@ import { PageListResultComponent } from './page-list-result/page-list-result.com
     PageListComponent,
     PageReservationsComponent,
     NavbarComponent,
-    PageListResultComponent
+    PageListResultComponent,
+    PageListFormComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +57,9 @@ import { PageListResultComponent } from './page-list-result/page-list-result.com
     MatIconModule,
     MatRadioModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    MatCheckboxModule,
+    FormsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
