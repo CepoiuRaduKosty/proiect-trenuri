@@ -24,6 +24,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatRadioModule } from '@angular/material/radio';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { PageListResultComponent } from './page-list-result/page-list-result.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     PageLoginComponent,
     PageListComponent,
     PageReservationsComponent,
-    NavbarComponent
+    NavbarComponent,
+    PageListResultComponent
   ],
   imports: [
     BrowserModule,
