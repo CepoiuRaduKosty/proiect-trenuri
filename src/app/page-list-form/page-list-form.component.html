@@ -7,7 +7,7 @@
     <input matInput [(ngModel)]="end">
 </mat-form-field>
 <mat-checkbox [(ngModel)]="wantsAdvancedSearch" name="advancedSearchToggle">Cautare avansata</mat-checkbox>
-<button mat-raised-button color="primary" (click)="onSend">Cauta</button>
+<button mat-raised-button color="primary" (click)="onSend($event)">Cauta</button>
 
 <div *ngIf="wantsAdvancedSearch">
     <p>Data si ora plecarii, minim</p>

@@ -41,8 +41,8 @@ export class PageListComponent {
     let query: TraseuSearchQuery = event as TraseuSearchQuery;
     this.trasee = this.traseeFetched.filter((elem) => {
       let passed = true;
-      if(query.start != null && elem.start.toUpperCase() != query.start.toUpperCase() ) passed = false;
-      if(query.end != null && elem.end.toUpperCase()  != query.end.toUpperCase() ) passed = false;
+      if(query.start != null && elem.start.trim().toUpperCase() != query.start.trim().toUpperCase() ) passed = false;
+      if(query.end != null && elem.end.trim().toUpperCase()  != query.end.trim().toUpperCase() ) passed = false;
       let _dataPlecare = new Date(elem.dataPlecare);
       let _dataSosire = new Date(elem.dataSosire);
       if(query.dataPlecareMin != null && _dataPlecare.valueOf() < query.dataPlecareMin.valueOf()) passed = false;
