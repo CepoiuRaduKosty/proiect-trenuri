@@ -8,37 +8,17 @@ import { Traseu, TraseuSearchQuery } from '../tipuri';
   styleUrls: ['./page-list.component.css']
 })
 export class PageListComponent {
-  traseeFetched: Array<Traseu> = [
-    {
-      id: 1,
-      start: 'sibiu',
-      end: 'jina',
-      tren: 'ir333',
-      dataPlecare: new Date("2023-05-16T20:30:00.000Z"),
-      dataSosire: new Date("2023-05-16T20:30:00.000Z")
-    },
-    {
-      id: 2,
-      start: 'jina',
-      end: 'sibiu',
-      tren: 'ir444',
-      dataPlecare: new Date("2023-05-17T20:30:00.000Z"),
-      dataSosire: new Date("2023-05-17T20:30:00.000Z")
-    },
-    {
-      id: 3,
-      start: 'bucuresti',
-      end: 'ploiesti',
-      tren: 'ir987',
-      dataPlecare: new Date("2023-05-18T20:30:00.000Z"),
-      dataSosire: new Date("2023-05-18T20:30:00.000Z")
-    }
-  ];
+  traseeFetched: Array<Traseu> = [];
   fetchedTable = false;
   trasee: Array<Traseu> = [];
 
+  DEBUG_query: TraseuSearchQuery = {};
+
   submitHandler(event: any){
     let query: TraseuSearchQuery = event as TraseuSearchQuery;
+
+    this.DEBUG_query = query;
+
     this.trasee = this.traseeFetched.filter((elem) => {
       let passed = true;
       if(query.start != null && elem.start.trim().toUpperCase() != query.start.trim().toUpperCase() ) passed = false;

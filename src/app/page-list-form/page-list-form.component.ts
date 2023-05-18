@@ -29,7 +29,8 @@ export class PageListFormComponent {
   private addHoursMinutesToDate(date: Date, hoursMinutes: string){
     let hours: number = Number(hoursMinutes.split(':')[0]);
     let minutes: number = Number(hoursMinutes.split(':')[1]);
-    date.setDate(date.getTime()+hours*60*60*1000+minutes*60*1000);
+    date.setHours(date.getHours() + hours);
+    date.setMinutes(date.getMinutes() + minutes);
   }
 
   onSend(event: any){
