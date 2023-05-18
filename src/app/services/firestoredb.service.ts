@@ -9,7 +9,7 @@ import { getDocs, DocumentData } from '@angular/fire/firestore';
 })
 export class FirestoreDbService {
     private firestore: Firestore = inject(Firestore);
-    collectionTrasee: CollectionReference<DocumentData>;
+    private collectionTrasee: CollectionReference<DocumentData>;
 
     constructor(){
       this.collectionTrasee = collection(this.firestore, 'trasee');

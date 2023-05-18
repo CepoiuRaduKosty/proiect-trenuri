@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { PageListResultComponent } from '../page-list-result/page-list-result.component';
 import { Traseu, TraseuSearchQuery } from '../tipuri';
+import { FirestoreDbService } from '../services/firestoredb.service';
 
 @Component({
   selector: 'app-page-list',
@@ -8,22 +9,14 @@ import { Traseu, TraseuSearchQuery } from '../tipuri';
   styleUrls: ['./page-list.component.css']
 })
 export class PageListComponent {
-  traseeFetched: Array<Traseu> = [];
+  firestoreDbService: FirestoreDbService = inject(FirestoreDbService);
+  traseeFetched: Traseu[] = [];
   fetchedTable = false;
-  trasee: Array<Traseu> = [];
+  trasee: Traseu[] = [];
 
-  DEBUG_query: TraseuSearchQuery = {};
-
-  private fetchTrasee(){
-    
-  }
-
-  submitHandler(event: any){
-    this.fetchTrasee();
-
+  async submitHandler(event: any){
+    this.traseeFetched = await this.firestoreDbService.getTrasee();
     let query: TraseuSearchQuery = event as TraseuSearchQuery;
-
-    this.DEBUG_query = query;
 
     this.trasee = this.traseeFetched.filter((elem) => {
       let passed = true;
