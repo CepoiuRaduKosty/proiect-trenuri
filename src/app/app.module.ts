@@ -29,7 +29,6 @@ import { PageListFormComponent } from './page-list-form/page-list-form.component
 import {MatCheckboxModule} from '@angular/material/checkbox'; 
 import { FormsModule } from '@angular/forms';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,9 +58,11 @@ import { FormsModule } from '@angular/forms';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     MatCheckboxModule,
-    FormsModule 
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  
+}
