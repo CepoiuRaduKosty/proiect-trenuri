@@ -28,6 +28,10 @@ import { PageListResultComponent } from './page-list-result/page-list-result.com
 import { PageListFormComponent } from './page-list-form/page-list-form.component';
 import {MatCheckboxModule} from '@angular/material/checkbox'; 
 import { FormsModule } from '@angular/forms';
+import { provideFirebaseApp } from '@angular/fire/app';
+import { provideFirestore } from '@angular/fire/firestore';
+import { initializeApp } from '@angular/fire/app';
+import { getFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -55,14 +59,14 @@ import { FormsModule } from '@angular/forms';
     MatTableModule,
     MatIconModule,
     MatRadioModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule,
     MatCheckboxModule,
-    FormsModule
+    FormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore())
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
-  
+
 }

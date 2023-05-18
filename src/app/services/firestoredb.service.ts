@@ -1,20 +1,26 @@
-import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { AngularFirestoreDocument } from '@angular/fire/compat/firestore';
+import { CollectionReference, Firestore, collection, collectionData} from '@angular/fire/firestore'
+import { Injectable, inject } from '@angular/core';
+import {Observable} from 'rxjs'
 import { Traseu } from '../tipuri';
-import { Injectable } from '@angular/core';
-import { AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { getDocs, DocumentData } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FirestoreDbService {
-    private db: AngularFirestore;
-    private traseeCollection: AngularFirestoreCollection<Traseu>;
+    private firestore: Firestore = inject(Firestore);
+    collectionTrasee: CollectionReference<DocumentData>;
 
-    constructor(db: AngularFirestore){
-        this.db = db;
-        this.traseeCollection = db.collection('/trasee');
+    constructor(){
+      this.collectionTrasee = collection(this.firestore, 'trasee');
     }
 
-
+    async getTrasee() : Promise<Traseu[]> {
+      const docList = await getDocs(this.collectionTrasee);
+      let trasee: Traseu[] = [];
+      docList.forEach((doc) => {
+        trasee.push(doc.data() as Traseu);
+      })
+      return trasee;
+    }
 }
