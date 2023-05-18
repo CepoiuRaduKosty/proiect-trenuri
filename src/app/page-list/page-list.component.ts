@@ -14,7 +14,13 @@ export class PageListComponent {
 
   DEBUG_query: TraseuSearchQuery = {};
 
+  private fetchTrasee(){
+    
+  }
+
   submitHandler(event: any){
+    this.fetchTrasee();
+
     let query: TraseuSearchQuery = event as TraseuSearchQuery;
 
     this.DEBUG_query = query;
