@@ -25,3 +25,8 @@ export type FirebaseConfig = {
     messagingSenderId: string,
     appId: string
 }
+
+export type FirebaseAuthError = {
+  code: string,
+  message: string
+}
