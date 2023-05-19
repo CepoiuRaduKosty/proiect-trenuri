@@ -14,6 +14,15 @@ export class PageListComponent {
   fetchedTable = false;
   trasee: Traseu[] = [];
 
+  private mondayFirst(dayOfWeek: number): number {
+    return (dayOfWeek+6)%7;
+  }
+
+  private isDayAvailable(dayOfWeek: number, zileValabil: boolean[]): boolean{
+    let dayOfWeekRO = this.mondayFirst(dayOfWeek);
+    return zileValabil[dayOfWeekRO];
+  }
+
   async submitHandler(event: any){
     this.traseeFetched = await this.firestoreDbService.getTrasee();
     let query: TraseuSearchQuery = event as TraseuSearchQuery;
@@ -22,12 +31,11 @@ export class PageListComponent {
       let passed = true;
       if(query.start != null && elem.start.trim().toUpperCase() != query.start.trim().toUpperCase() ) passed = false;
       if(query.end != null && elem.end.trim().toUpperCase()  != query.end.trim().toUpperCase() ) passed = false;
-      let _dataPlecare = new Date(elem.dataPlecare);
-      let _dataSosire = new Date(elem.dataSosire);
-      if(query.dataPlecareMin != null && _dataPlecare.valueOf() < query.dataPlecareMin.valueOf()) passed = false;
-      if(query.dataPlecareMax != null && _dataPlecare.valueOf() > query.dataPlecareMax.valueOf()) passed = false;
-      if(query.dataSosireMin != null && _dataSosire.valueOf() < query.dataSosireMin.valueOf()) passed = false;
-      if(query.dataSosireMax != null && _dataSosire.valueOf()> query.dataSosireMax.valueOf()) passed = false;
+      if(query.dataPlecare != null && (
+        this.isDayAvailable(query.dataPlecare.getDay(), elem.zileValabil) != true ||
+        query.dataPlecare.getHours() > elem.oraPlecare ||
+        (query.dataPlecare.getHours() == elem.oraPlecare && query.dataPlecare.getMinutes() > elem.minutPlecare)
+      )) passed = false;
       return passed;
     });
     this.fetchedTable = true;

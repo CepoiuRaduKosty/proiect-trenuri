@@ -32,6 +32,7 @@ import { provideFirebaseApp } from '@angular/fire/app';
 import { provideFirestore } from '@angular/fire/firestore';
 import { initializeApp } from '@angular/fire/app';
 import { getFirestore } from '@angular/fire/firestore';
+import {getAuth, provideAuth} from '@angular/fire/auth'
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { getFirestore } from '@angular/fire/firestore';
     MatCheckboxModule,
     FormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideFirestore(() => getFirestore())
+    provideFirestore(() => getFirestore()),
+    provideAuth(() => getAuth())
   ],
   providers: [],
   bootstrap: [AppComponent]

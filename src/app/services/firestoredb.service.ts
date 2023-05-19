@@ -1,8 +1,9 @@
-import { CollectionReference, Firestore, collection, collectionData} from '@angular/fire/firestore'
+import { CollectionReference, Firestore, collection, collectionData, Query} from '@angular/fire/firestore'
 import { Injectable, inject } from '@angular/core';
 import {Observable} from 'rxjs'
-import { Traseu } from '../tipuri';
-import { getDocs, DocumentData } from '@angular/fire/firestore';
+import { Traseu, TraseuSearchQuery } from '../tipuri';
+import { getDocs, DocumentData, query, orderBy, where} from '@angular/fire/firestore';
+import { Timestamp } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root',

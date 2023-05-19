@@ -14,17 +14,9 @@ export class PageListFormComponent {
   wantsAdvancedSearch = false;
 
   start?: string;
-  end?: string
-
-  dataPlecareMin?: Date;
-  dataPlecareMax?: Date;
-  dataSosireMin?: Date;
-  dataSosireMax?: Date;
-
-  oraPlecareMin?: string;
-  oraPlecareMax?: string;
-  oraSosireMin?: string;
-  oraSosireMax?: string;
+  end?: string;
+  dataPlecare?: Date;
+  oraPlecare?: string;
 
   private addHoursMinutesToDate(date: Date, hoursMinutes: string){
     let hours: number = Number(hoursMinutes.split(':')[0]);
@@ -38,30 +30,16 @@ export class PageListFormComponent {
     tempQuery.start=this.start;
     tempQuery.end = this.end;
     
-    if(this.dataPlecareMin && this.oraPlecareMin)
-      this.addHoursMinutesToDate(this.dataPlecareMin, this.oraPlecareMin)
-    if(this.dataPlecareMax && this.oraPlecareMax)
-      this.addHoursMinutesToDate(this.dataPlecareMax, this.oraPlecareMax)
-    if(this.dataSosireMin && this.oraSosireMin)
-      this.addHoursMinutesToDate(this.dataSosireMin, this.oraSosireMin)
-    if(this.dataSosireMax && this.oraSosireMax)
-      this.addHoursMinutesToDate(this.dataSosireMax, this.oraSosireMax)
+    if(this.dataPlecare && this.oraPlecare)
+      this.addHoursMinutesToDate(this.dataPlecare, this.oraPlecare)
 
-    tempQuery.dataPlecareMax = this.dataPlecareMax;
-    tempQuery.dataPlecareMin = this.dataPlecareMin;
-    tempQuery.dataSosireMax = this.dataSosireMax;
-    tempQuery.dataSosireMin = this.dataSosireMin;
+    tempQuery.dataPlecare = this.dataPlecare;
+
     this.submitted.emit(tempQuery);
 
     this.start = undefined;
     this.end = undefined;
-    this.dataPlecareMin = undefined;
-    this.dataPlecareMax = undefined;
-    this.dataSosireMax = undefined;
-    this.dataSosireMin = undefined;
-    this.oraPlecareMax = undefined;
-    this.oraPlecareMin = undefined;
-    this.oraSosireMax = undefined;
-    this.oraSosireMin = undefined;
+    this.dataPlecare = undefined;
+    this.oraPlecare = undefined;
   }
 }

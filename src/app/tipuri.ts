@@ -1,21 +1,20 @@
 import { Time } from "@angular/common"
+import { Timestamp } from "firebase/firestore"
 
 export type Traseu = {
     id: number,
     start: string,
     end: string,
     tren: string,
-    dataPlecare: Date,
-    dataSosire: Date
+    oraPlecare: number,
+    minutPlecare: number,
+    zileValabil: boolean[]
 }
 
 export type TraseuSearchQuery = {
   start?: string,
   end?: string,
-  dataPlecareMin?: Date,
-  dataPlecareMax?: Date,
-  dataSosireMin?: Date,
-  dataSosireMax?: Date
+  dataPlecare?: Date
 }
 
 export type FirebaseConfig = {
