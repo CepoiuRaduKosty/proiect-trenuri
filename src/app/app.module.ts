@@ -24,7 +24,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatRadioModule } from '@angular/material/radio';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-
+import { PageListResultComponent } from './page-list-result/page-list-result.component';
+import { PageListFormComponent } from './page-list-form/page-list-form.component';
+import {MatCheckboxModule} from '@angular/material/checkbox'; 
+import { FormsModule } from '@angular/forms';
+import { provideFirebaseApp } from '@angular/fire/app';
+import { provideFirestore } from '@angular/fire/firestore';
+import { initializeApp } from '@angular/fire/app';
+import { getFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -32,7 +39,9 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     PageLoginComponent,
     PageListComponent,
     PageReservationsComponent,
-    NavbarComponent
+    NavbarComponent,
+    PageListResultComponent,
+    PageListFormComponent
   ],
   imports: [
     BrowserModule,
@@ -50,10 +59,14 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     MatTableModule,
     MatIconModule,
     MatRadioModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    MatCheckboxModule,
+    FormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore())
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+
+}

@@ -1,0 +1,9 @@
+<table>
+    <tr *ngFor="let traseu of fetchedData">
+        <td>{{traseu.start}}</td>
+        <td>{{traseu.end}}</td>
+        <td>{{traseu.tren}}</td>
+        <td>{{traseu.dataPlecare | date:'short'}}</td>
+        <td>{{traseu.dataSosire | date: 'short'}}</td>
+    </tr>
+</table>
