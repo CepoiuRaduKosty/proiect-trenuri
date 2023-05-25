@@ -3,11 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { PageListComponent } from './page-list/page-list.component';
 import { PageLoginComponent } from './page-login/page-login.component';
 import { PageReservationsComponent } from './page-reservations/page-reservations.component';
+import { PageSignupComponent } from './page-signup/page-signup.component';
 
 const routes: Routes = [
   {path: 'list', component: PageListComponent},
   {path: 'login', component: PageLoginComponent},
-  {path: 'reservations', component: PageReservationsComponent}
+  {path: 'reservations', component: PageReservationsComponent},
+  {path: 'signup', component: PageSignupComponent}
 ];
 
 @NgModule({

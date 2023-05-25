@@ -32,7 +32,11 @@ import { provideFirebaseApp } from '@angular/fire/app';
 import { provideFirestore } from '@angular/fire/firestore';
 import { initializeApp } from '@angular/fire/app';
 import { getFirestore } from '@angular/fire/firestore';
-import {getAuth, provideAuth} from '@angular/fire/auth'
+import {getAuth, provideAuth} from '@angular/fire/auth';
+import { PageSignupComponent } from './page-signup/page-signup.component'
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogSignupSuccessComponent } from './dialog-signup-success/dialog-signup-success.component';
+import { DiagSignupFailComponent } from './diag-signup-fail/diag-signup-fail.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +46,10 @@ import {getAuth, provideAuth} from '@angular/fire/auth'
     PageReservationsComponent,
     NavbarComponent,
     PageListResultComponent,
-    PageListFormComponent
+    PageListFormComponent,
+    PageSignupComponent,
+    DialogSignupSuccessComponent,
+    DiagSignupFailComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +71,8 @@ import {getAuth, provideAuth} from '@angular/fire/auth'
     FormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
-    provideAuth(() => getAuth())
+    provideAuth(() => getAuth()),
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
