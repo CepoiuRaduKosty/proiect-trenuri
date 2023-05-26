@@ -1,4 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { MatDialogRef, MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
+export type DialogData = {
+  errorCode: string,
+  errorMessage: string
+}
 
 @Component({
   selector: 'app-diag-signup-fail',
@@ -6,5 +12,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./diag-signup-fail.component.css']
 })
 export class DiagSignupFailComponent {
+  constructor(
+    public dialogRef: MatDialogRef<DiagSignupFailComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+  ) {}
 
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 }
