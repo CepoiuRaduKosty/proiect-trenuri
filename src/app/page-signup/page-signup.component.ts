@@ -17,25 +17,26 @@ export class PageSignupComponent {
   password: string = "";
 
   async clickSignup(){
-    await this.svcAuth.signUp(this.username, this.password);
-    if(this.svcAuth.errorCode!="0"){
-        let dialogRef = this.dialog.open(DialogSignupSuccessComponent);
-        dialogRef.afterClosed().subscribe(result => {
-          this.username = "";
-          this.password = "";
+    this.svcAuth.signUp(this.username, this.password)
+      .then(() => {
+          let dialogRef = this.dialog.open(DialogSignupSuccessComponent);
+          dialogRef.afterClosed().subscribe(result => {
+            this.username = "";
+            this.password = "";
+            });
+      })
+      .catch((error) => {
+        let dialogRef = this.dialog.open(DiagSignupFailComponent, {
+          data: {
+            errorCode: this.svcAuth.errorCode,
+            errorMsg: this.svcAuth.errorMessage
+          }
         });
-    }
-    else{
-      let dialogRef = this.dialog.open(DiagSignupFailComponent, {
-        data: {
-          errorCode: this.svcAuth.errorCode,
-          errorMsg: this.svcAuth.errorMessage
-        }
-      });
-        dialogRef.afterClosed().subscribe(result => {
-          this.username = "";
-          this.password = "";
-        });
-    }
+          dialogRef.afterClosed().subscribe(result => {
+            this.username = "";
+            this.password = "";
+          });
+      })
+    
   }
 }

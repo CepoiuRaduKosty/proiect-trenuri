@@ -12,10 +12,29 @@ export type DialogData = {
   styleUrls: ['./diag-signup-fail.component.css']
 })
 export class DiagSignupFailComponent {
+  reason: string = "";
   constructor(
     public dialogRef: MatDialogRef<DiagSignupFailComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
-  ) {}
+  ) {
+    switch(data.errorCode){
+      case("auth/email-already-in-use"):
+        this.reason = "Email already registered";
+        break;
+      case("auth/invalid-email"):
+        this.reason = "Invalid email";
+        break;
+      case("auth/operation-not-allowed"):
+        this.reason = "Operation not allowed";
+        break;
+      case("auth/weak-password"):
+        this.reason = "Password too weak";
+        break;
+      default:
+        this.reason = "Unknown error";
+        break;
+    }
+  }
 
   onNoClick(): void {
     this.dialogRef.close();

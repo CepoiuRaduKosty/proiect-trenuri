@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { Auth, signInWithEmailAndPassword, User, createUserWithEmailAndPassword } from '@angular/fire/auth';
+import { Auth, signInWithEmailAndPassword, User, createUserWithEmailAndPassword, UserCredential } from '@angular/fire/auth';
 import { FirebaseAuthError } from '../tipuri';
 
 @Injectable({
@@ -28,17 +28,17 @@ export class FireAuthService {
     }
 
     async signUp(email: string, password: string){
-        createUserWithEmailAndPassword(this.auth, email, password)
-        .then((userCredential) => {
+        let userCredential = await createUserWithEmailAndPassword(this.auth, email, password)
+            .catch((error) => {
+                let authError = error as FirebaseAuthError;
+                this.errorCode = authError.code;
+                this.errorMessage = authError.message;
+                throw error
+            });
+        if(userCredential != null){
             this.user = userCredential.user;
             this.errorCode = '0';
             this.errorMessage = "";
-            
-        })
-        .catch((error) => {
-            let authError = error as FirebaseAuthError;
-            this.errorCode = authError.code;
-            this.errorMessage = authError.message;
-        })
+        }
     }
 }
