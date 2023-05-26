@@ -1,7 +1,8 @@
 <div class="top-container">
     <div class="img-trenulet"></div>
     <mat-toolbar>
-        <a routerLink="/login" routerLinkActive="active"><button mat-button>Login</button></a>
+        <a routerLink="/login" routerLinkActive="active" *ngIf="svcAuth.isSignedIn() == false"><button mat-button>Login</button></a>
+        <a><button mat-button *ngIf="svcAuth.isSignedIn() == true" (click)="clickLogout()">Logout</button></a> 
         <a routerLink="/list" routerLinkActive="active"><button mat-button>Drumuri</button></a>
         <a routerLink="/reservations" routerLinkActive="active"><button mat-button>Rezervari</button></a>
     </mat-toolbar>

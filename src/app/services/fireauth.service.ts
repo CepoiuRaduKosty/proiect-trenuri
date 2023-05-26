@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { Auth, signInWithEmailAndPassword, User, createUserWithEmailAndPassword, UserCredential } from '@angular/fire/auth';
+import { Auth, signInWithEmailAndPassword, User, createUserWithEmailAndPassword, UserCredential, signOut } from '@angular/fire/auth';
 import { FirebaseAuthError } from '../tipuri';
 
 @Injectable({
@@ -41,5 +41,13 @@ export class FireAuthService {
             this.errorCode = '0';
             this.errorMessage = "";
         }
+    }
+
+    isSignedIn(): boolean{
+        return this.auth.currentUser != null;
+    }
+
+    async signOutUser(){
+        await signOut(this.auth);
     }
 }

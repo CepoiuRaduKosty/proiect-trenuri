@@ -1,5 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dialog-signup-success',
@@ -8,10 +9,12 @@ import { MatDialogRef, MatDialog, MAT_DIALOG_DATA } from '@angular/material/dial
 })
 export class DialogSignupSuccessComponent {
   constructor(
-    public dialogRef: MatDialogRef<DialogSignupSuccessComponent>
+    public dialogRef: MatDialogRef<DialogSignupSuccessComponent>,
+    public router: Router
   ) {}
 
   onNoClick(): void {
     this.dialogRef.close();
+    this.router.navigateByUrl('/list');
   }
 }
