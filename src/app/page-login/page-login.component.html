@@ -4,15 +4,15 @@
     <form class="login-form">
       <mat-form-field>
         <mat-label>E-mail</mat-label>
-        <input matInput type="email" placeholder="username@mail.com">
+        <input matInput type="email" placeholder="username@mail.com" [(ngModel)]="email" name="emailForm">
       </mat-form-field>
       <br>
       <mat-form-field>
         <mat-label>Password</mat-label>
-        <input matInput type="password">
+        <input matInput type="password" [(ngModel)]="password" name="emailPassword">
       </mat-form-field>
       <br>
-      <button mat-raised-button color="accent">Login</button>
+      <button mat-raised-button color="accent" (click)="clickLogin()">Login</button>
       <a routerLink="/signup" routerLinkActive="active"><button mat-raised-button color="primary">Create Account</button></a>
     </form>
   </div>

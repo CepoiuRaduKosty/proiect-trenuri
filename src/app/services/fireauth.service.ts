@@ -13,18 +13,19 @@ export class FireAuthService {
     errorMessage: string = "";
 
     async signIn(email: string, password: string){
-        signInWithEmailAndPassword(this.auth, email, password)
-        .then((userCredential) => {
-            this.user = userCredential.user;
-            this.errorCode = '0';
-            this.errorMessage = "";
-            
-        })
+        let userCredential = await signInWithEmailAndPassword(this.auth, email, password)
         .catch((error) => {
             let authError = error as FirebaseAuthError;
             this.errorCode = authError.code;
             this.errorMessage = authError.message;
+            throw error;
         })
+        if(userCredential != null){
+            this.user = userCredential.user;
+            this.errorCode = '0';
+            this.errorMessage = "";
+            
+        }
     }
 
     async signUp(email: string, password: string){

@@ -37,6 +37,8 @@ import { PageSignupComponent } from './page-signup/page-signup.component'
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogSignupSuccessComponent } from './dialog-signup-success/dialog-signup-success.component';
 import { DiagSignupFailComponent } from './diag-signup-fail/diag-signup-fail.component';
+import { DialogLoginSuccessComponent } from './dialog-login-success/dialog-login-success.component';
+import { DialogLoginFailComponent } from './dialog-login-fail/dialog-login-fail.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,9 @@ import { DiagSignupFailComponent } from './diag-signup-fail/diag-signup-fail.com
     PageListFormComponent,
     PageSignupComponent,
     DialogSignupSuccessComponent,
-    DiagSignupFailComponent
+    DiagSignupFailComponent,
+    DialogLoginSuccessComponent,
+    DialogLoginFailComponent
   ],
   imports: [
     BrowserModule,
