@@ -3,6 +3,7 @@ import { FireAuthService } from '../services/fireauth.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogLoginSuccessComponent } from '../dialog-login-success/dialog-login-success.component';
 import { DialogLoginFailComponent } from '../dialog-login-fail/dialog-login-fail.component';
+import { FirestoreDbService } from '../services/firestoredb.service';
 
 @Component({
   selector: 'app-page-login',
@@ -12,6 +13,7 @@ import { DialogLoginFailComponent } from '../dialog-login-fail/dialog-login-fail
 export class PageLoginComponent {
   private svcAuth = inject(FireAuthService);
   private dialog: MatDialog = inject(MatDialog);
+  private svcDb: FirestoreDbService = inject(FirestoreDbService);
   email: string = "";
   password: string = "";
 
