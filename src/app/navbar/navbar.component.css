@@ -18,12 +18,17 @@ mat-toolbar{
 }
 
 button{
-    font-size: 100%;
     margin: 10px;
     border-bottom: 2px solid rgb(105,66,132);
     height: 75%;
     width: 30%;
 }
+
+@media only screen and (min-width: 400px) {
+    button{
+        font-size: 100%;
+    }
+  }
 
 button:hover{
     border-bottom: 2px solid white;

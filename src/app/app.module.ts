@@ -44,6 +44,8 @@ import { DialogBiletNouserComponent } from './dialog-bilet-nouser/dialog-bilet-n
 import {MatSnackBarModule} from '@angular/material/snack-bar'; 
 import {MatDividerModule} from '@angular/material/divider'; 
 import {MatCardModule} from '@angular/material/card'; 
+import {MatGridListModule} from '@angular/material/grid-list'; 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -85,7 +87,8 @@ import {MatCardModule} from '@angular/material/card';
     MatDialogModule,
     MatSnackBarModule,
     MatDividerModule,
-    MatCardModule
+    MatCardModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

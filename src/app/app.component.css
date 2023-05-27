@@ -1,15 +1,7 @@
 .content-wrapper{
     background-color: rgb(182, 161, 196);
-    min-height: 87.9vh;
+    min-height: 87.68vh;
     padding-top: 2vh;
-}
-
-.content{
-    background-color: white;
-    margin-left: 10vw;
-    margin-right: 10vw;
-    height:100%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 mat-card-footer{

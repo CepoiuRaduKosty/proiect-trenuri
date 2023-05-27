@@ -1,10 +1,20 @@
-<h1> Care este data calatoriei? </h1>
-<mat-form-field>
-    <mat-label>Data calatoriei</mat-label>
-    <input matInput [matDatepicker]="picker1" [(ngModel)]="dataCalatorie" [matDatepickerFilter]="dateFilter.bind(this)" [min]="todayDate">
-    <mat-hint>MM/DD/YYYY</mat-hint>
-    <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
-    <mat-datepicker #picker1></mat-datepicker>
-</mat-form-field>
-<button mat-raised-button color="primary" (click)="onConfirm()">Ok</button>
-<button mat-raised-button (click)="onNoClick()">Cancel</button>
+<div class="container">
+    <h1> Care este data calatoriei? </h1>
+    <mat-grid-list cols="2" rowHeight="2:1">
+        <mat-grid-tile colspan="2">
+            <mat-form-field> 
+                <mat-label>Data calatoriei</mat-label>
+                <input matInput [matDatepicker]="picker1" [(ngModel)]="dataCalatorie" [matDatepickerFilter]="dateFilter.bind(this)" [min]="todayDate">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <button mat-stroked-button (click)="onConfirm()">Ok</button>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <button mat-button (click)="onNoClick()">Cancel</button>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
