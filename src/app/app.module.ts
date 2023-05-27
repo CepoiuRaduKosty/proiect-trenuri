@@ -39,7 +39,11 @@ import { DialogSignupSuccessComponent } from './dialog-signup-success/dialog-sig
 import { DiagSignupFailComponent } from './diag-signup-fail/diag-signup-fail.component';
 import { DialogLoginSuccessComponent } from './dialog-login-success/dialog-login-success.component';
 import { DialogLoginFailComponent } from './dialog-login-fail/dialog-login-fail.component';
-
+import { DiagBiletComponent } from './diag-bilet/diag-bilet.component';
+import { DialogBiletNouserComponent } from './dialog-bilet-nouser/dialog-bilet-nouser.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar'; 
+import {MatDividerModule} from '@angular/material/divider'; 
+import {MatCardModule} from '@angular/material/card'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +57,9 @@ import { DialogLoginFailComponent } from './dialog-login-fail/dialog-login-fail.
     DialogSignupSuccessComponent,
     DiagSignupFailComponent,
     DialogLoginSuccessComponent,
-    DialogLoginFailComponent
+    DialogLoginFailComponent,
+    DiagBiletComponent,
+    DialogBiletNouserComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +82,10 @@ import { DialogLoginFailComponent } from './dialog-login-fail/dialog-login-fail.
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     provideAuth(() => getAuth()),
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule,
+    MatDividerModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

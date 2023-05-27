@@ -4,6 +4,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogLoginSuccessComponent } from '../dialog-login-success/dialog-login-success.component';
 import { DialogLoginFailComponent } from '../dialog-login-fail/dialog-login-fail.component';
 import { FirestoreDbService } from '../services/firestoredb.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-page-login',
@@ -14,17 +16,20 @@ export class PageLoginComponent {
   private svcAuth = inject(FireAuthService);
   private dialog: MatDialog = inject(MatDialog);
   private svcDb: FirestoreDbService = inject(FirestoreDbService);
+  private snackbar: MatSnackBar = inject(MatSnackBar);
+  private router: Router = inject(Router);
   email: string = "";
   password: string = "";
 
   async clickLogin(){
     this.svcAuth.signIn(this.email, this.password)
       .then(() => {
-          let dialogRef = this.dialog.open(DialogLoginSuccessComponent);
-          dialogRef.afterClosed().subscribe(result => {
-            this.email = "";
-            this.password = "";
-            });
+        this.email = "";
+        this.password = "";
+        this.snackbar.open("Autentificare realizata cu succes!", "Ok", {
+          duration: 3000
+        })
+        this.router.navigateByUrl('/list');
       })
       .catch((error) => {
         let dialogRef = this.dialog.open(DialogLoginFailComponent, {

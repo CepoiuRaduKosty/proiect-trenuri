@@ -30,3 +30,15 @@ export type FirebaseAuthError = {
   code: string,
   message: string
 }
+
+export type Bilet = {
+  traseuId: number,
+  date: Timestamp
+}
+
+export type LinieTabel = {
+  start: string,
+  end: string,
+  tren: string,
+  dataPlecare: Date,
+}

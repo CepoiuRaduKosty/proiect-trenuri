@@ -11,3 +11,14 @@
     height:100%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+mat-card-footer{
+    text-align: center;
+    color:rgba(0, 0, 0, 0.19);
+    margin: 10px;
+}
+
+mat-card{
+    max-width: 1500px;
+    margin: auto;
+}

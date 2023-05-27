@@ -1,1 +1,25 @@
-<p>page-reservations works!</p>
+<h1 *ngIf="rezervariRecente.length == 0">Nu este niciun bilet cumparat recent!</h1>
+<div *ngIf="rezervariRecente.length != 0">
+    <h1>Bilete cumparate recent</h1>
+    <table>
+        <tr *ngFor="let rand of liniiTabelRecente">
+            <td>{{rand.start}}</td>
+            <td>{{rand.end}}</td>
+            <td>{{rand.tren}}</td>
+            <td>{{rand.dataPlecare | date: 'medium'}}</td>
+        </tr>
+    </table>
+</div>
+<mat-checkbox [(ngModel)]="afisBileteVechi" name="oldBileteToggle" (click)="getBileteNerecente()">Afiseaza bilete cumparate mai vechi de acum 3 zile</mat-checkbox>
+<div *ngIf="afisBileteVechi">
+    <mat-divider></mat-divider>
+    <h1>Bilete cumparate in trecut</h1>
+    <table>
+        <tr *ngFor="let rand of liniiTabelNerecente">
+            <td>{{rand.start}}</td>
+            <td>{{rand.end}}</td>
+            <td>{{rand.tren}}</td>
+            <td>{{rand.dataPlecare | date: 'medium'}}</td>
+        </tr>
+    </table>
+</div>
