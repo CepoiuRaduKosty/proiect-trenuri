@@ -7,7 +7,7 @@ import { FirebaseAuthError } from '../tipuri';
   })
 export class FireAuthService {
     private auth: Auth = inject(Auth);
-    private user?: User;
+    user?: User;
 
     errorCode: string = '0';
     errorMessage: string = "";
@@ -40,6 +40,7 @@ export class FireAuthService {
             this.user = userCredential.user;
             this.errorCode = '0';
             this.errorMessage = "";
+
         }
     }
 

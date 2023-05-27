@@ -2,7 +2,7 @@ import { CollectionReference, Firestore, collection, collectionData, Query} from
 import { Injectable, inject } from '@angular/core';
 import {Observable} from 'rxjs'
 import { Traseu, TraseuSearchQuery } from '../tipuri';
-import { getDocs, DocumentData, query, orderBy, where} from '@angular/fire/firestore';
+import { getDocs, DocumentData, query, orderBy, where, doc, setDoc} from '@angular/fire/firestore';
 import { Timestamp } from '@angular/fire/firestore';
 
 @Injectable({
@@ -11,9 +11,11 @@ import { Timestamp } from '@angular/fire/firestore';
 export class FirestoreDbService {
     private firestore: Firestore = inject(Firestore);
     private collectionTrasee: CollectionReference<DocumentData>;
+    private collectionBilete: CollectionReference<DocumentData>;
 
     constructor(){
       this.collectionTrasee = collection(this.firestore, 'trasee');
+      this.collectionBilete = collection(this.firestore, 'bilete');
     }
 
     async getTrasee() : Promise<Traseu[]> {
@@ -24,4 +26,11 @@ export class FirestoreDbService {
       })
       return trasee;
     }
+
+    userInitBilete(userUID: string){
+      const numeDoc = "user-" + userUID;
+      setDoc(doc(this.firestore, "bilete", numeDoc ), {
+          userUid: userUID
+      });
+    } 
 }
