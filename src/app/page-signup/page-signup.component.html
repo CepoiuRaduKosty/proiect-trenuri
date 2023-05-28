@@ -1,21 +1,26 @@
-<div class="signup-page-wrapper">
-    <div class="signup-left-side">
-      <h1>Signup</h1>
-      <form class="signup-form">
-        <mat-form-field>
-          <mat-label>E-mail</mat-label>
-          <input matInput type="email" placeholder="username@mail.com" [(ngModel)]="username" name="emailForm">
-        </mat-form-field>
-        <br>
-        <mat-form-field>
-          <mat-label>Password</mat-label>
-          <input matInput type="password" [(ngModel)]="password" name="passwordForm">
-        </mat-form-field>
-        <br>
-        <button mat-raised-button color="accent" (click)="clickSignup()">Signup</button>
-      </form>
-    </div>
-  
-    <div class="signup-right-side">
-    </div>
+  <div style="min-width: 100%;" (window:resize)="chooseWhenResize()">
+    <mat-grid-list [cols]="colnumber" rowHeight="400px">
+        <mat-grid-tile>
+            <div class="leftGrid">
+              <h1>Signup</h1>
+              <form class="signup-form">
+                <mat-form-field>
+                  <mat-label>E-mail</mat-label>
+                  <input matInput type="email" placeholder="username@mail.com" [(ngModel)]="username" name="emailForm">
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                  <mat-label>Password</mat-label>
+                  <input matInput type="password" [(ngModel)]="password" name="passwordForm">
+                </mat-form-field>
+                <br>
+                <button mat-raised-button color="accent" (click)="clickSignup()">Signup</button>
+              </form>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile *ngIf="rightPanelCheck()">
+          <div class="signup-right-side">
+          </div>
+        </mat-grid-tile>
+    </mat-grid-list>
   </div>

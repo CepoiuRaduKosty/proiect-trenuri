@@ -21,6 +21,7 @@ export class DiagBiletComponent {
   schedule: boolean[] = [];
   todayDate = new Date();
 
+  filter = (date: Date | null): boolean => {return true;};
   constructor(
     public dialogRef: MatDialogRef<DiagBiletComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
@@ -30,6 +31,13 @@ export class DiagBiletComponent {
 
   async getSchedule(){
     this.schedule = await this.svcDb.getTraseuSchedule(this.data.traseuId);
+    let sch = this.schedule;
+    
+    this.filter = (date: Date | null): boolean => {
+      console.log("loll" , sch);
+      if(date == null) return false;
+      return sch[(date.getDay()+6)%7];
+    }
   }
 
   async onConfirm(){
@@ -67,13 +75,7 @@ export class DiagBiletComponent {
     }   
   }
 
-  dateFilter(date: Date | null){
-    if(date == null) return false;
-    else{
-      let day = date.getDay();
-      return this.schedule[day];
-    }
-  }
+  
 
   onNoClick(): void {
     this.dialogRef.close();

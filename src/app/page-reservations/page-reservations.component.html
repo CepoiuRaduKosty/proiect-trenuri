@@ -1,25 +1,51 @@
 <h1 *ngIf="rezervariRecente.length == 0">Nu este niciun bilet cumparat recent!</h1>
 <div *ngIf="rezervariRecente.length != 0">
     <h1>Bilete cumparate recent</h1>
-    <table>
-        <tr *ngFor="let rand of liniiTabelRecente">
-            <td>{{rand.start}}</td>
-            <td>{{rand.end}}</td>
-            <td>{{rand.tren}}</td>
-            <td>{{rand.dataPlecare | date: 'medium'}}</td>
-        </tr>
+    <table mat-table [dataSource]="dataSourceRecente" style="width: 100%;">
+        <ng-container matColumnDef="start">
+            <th mat-header-cell *matHeaderCellDef> Start </th>
+            <td mat-cell *matCellDef="let rand"> {{rand.start}} </td>
+        </ng-container>
+        <ng-container matColumnDef="end">
+            <th mat-header-cell *matHeaderCellDef> Destinatie </th>
+            <td mat-cell *matCellDef="let rand"> {{rand.end}} </td>
+        </ng-container>
+        <ng-container matColumnDef="tren">
+            <th mat-header-cell *matHeaderCellDef> Tren </th>
+            <td mat-cell *matCellDef="let rand"> {{rand.tren}} </td>
+        </ng-container>
+        <ng-container matColumnDef="dataPlecare">
+            <th mat-header-cell *matHeaderCellDef> Zile </th>
+            <td mat-cell *matCellDef="let rand"> {{rand.dataPlecare | date: 'medium'}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements"></mat-paginator>
 </div>
 <mat-checkbox [(ngModel)]="afisBileteVechi" name="oldBileteToggle" (click)="getBileteNerecente()">Afiseaza bilete cumparate mai vechi de acum 3 zile</mat-checkbox>
 <div *ngIf="afisBileteVechi">
     <mat-divider></mat-divider>
     <h1>Bilete cumparate in trecut</h1>
-    <table>
-        <tr *ngFor="let rand of liniiTabelNerecente">
-            <td>{{rand.start}}</td>
-            <td>{{rand.end}}</td>
-            <td>{{rand.tren}}</td>
-            <td>{{rand.dataPlecare | date: 'medium'}}</td>
-        </tr>
+    <table mat-table [dataSource]="dataSourceNerecente" style="width: 100%;">
+        <ng-container matColumnDef="start">
+            <th mat-header-cell *matHeaderCellDef> Start </th>
+            <td mat-cell *matCellDef="let rand"> {{rand.start}} </td>
+        </ng-container>
+        <ng-container matColumnDef="end">
+            <th mat-header-cell *matHeaderCellDef> Destinatie </th>
+            <td mat-cell *matCellDef="let rand"> {{rand.end}} </td>
+        </ng-container>
+        <ng-container matColumnDef="tren">
+            <th mat-header-cell *matHeaderCellDef> Tren </th>
+            <td mat-cell *matCellDef="let rand"> {{rand.tren}} </td>
+        </ng-container>
+        <ng-container matColumnDef="dataPlecare">
+            <th mat-header-cell *matHeaderCellDef> Zile </th>
+            <td mat-cell *matCellDef="let rand"> {{rand.dataPlecare | date: 'medium'}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements"></mat-paginator>
 </div>

@@ -4,7 +4,7 @@
         <mat-grid-tile colspan="2">
             <mat-form-field> 
                 <mat-label>Data calatoriei</mat-label>
-                <input matInput [matDatepicker]="picker1" [(ngModel)]="dataCalatorie" [matDatepickerFilter]="dateFilter.bind(this)" [min]="todayDate">
+                <input matInput [matDatepicker]="picker1" [(ngModel)]="dataCalatorie" [matDatepickerFilter]="filter"  [min]="todayDate">
                 <mat-hint>MM/DD/YYYY</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
                 <mat-datepicker #picker1></mat-datepicker>

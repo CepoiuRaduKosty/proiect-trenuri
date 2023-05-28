@@ -17,6 +17,10 @@ export class PageSignupComponent {
   username: string = "";
   password: string = "";
 
+  respWidth = 600;
+  colnumber: string = "2";
+  lowWidth = false;
+
   async clickSignup(){
     this.svcAuth.signUp(this.username, this.password)
       .then(() => {
@@ -42,5 +46,24 @@ export class PageSignupComponent {
           });
       })
     
+  }
+
+  constructor(){
+    this.chooseWhenResize();
+  }
+
+  chooseWhenResize(){
+    if(window.innerWidth > this.respWidth){
+      this.colnumber = "2";
+      this.lowWidth = false;
+    }
+    else {
+      this.colnumber = "1";
+      this.lowWidth = true;
+    }
+  }
+
+  rightPanelCheck():boolean{
+    return this.lowWidth == false;
   }
 }

@@ -25,8 +25,6 @@ export class PageListResultComponent {
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
   ngAfterViewInit() {
     this.dataSource = new MatTableDataSource<Traseu>(this.fetchedData);
-    console.log(this.dataSource);
-    console.log(this.fetchedData);
     if(this.paginator != null){
       this.dataSource.paginator = this.paginator;
     }
