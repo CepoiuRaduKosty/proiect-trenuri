@@ -18,6 +18,30 @@ export class PageListFormComponent {
   dataPlecare?: Date;
   oraPlecare?: string;
 
+  respWidth = 600;
+  colnumber: string = "2";
+  lowWidth = false;
+
+  constructor(){
+    this.chooseWhenResize()
+  }
+
+  chooseWhenResize(){
+    if(window.innerWidth > this.respWidth){
+      this.colnumber = "2";
+      this.lowWidth = false;
+    }
+    else {
+      this.colnumber = "1";
+      this.lowWidth = true;
+    }
+  }
+
+  rightPanelCheck():boolean{
+    return (this.lowWidth == true && this.wantsAdvancedSearch == true) || 
+          (this.lowWidth == false);
+  }
+
   private addHoursMinutesToDate(date: Date, hoursMinutes: string){
     let hours: number = Number(hoursMinutes.split(':')[0]);
     let minutes: number = Number(hoursMinutes.split(':')[1]);

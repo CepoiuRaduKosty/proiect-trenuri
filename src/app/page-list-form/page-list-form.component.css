@@ -1,0 +1,19 @@
+.iconContainer{
+    margin:10px;
+    margin-bottom: 20px;
+}
+
+.leftGrid{
+    min-width: 100%;
+}
+
+mat-checkbox{
+    display: block;
+}
+
+.rightGrid{
+    width: 100%;
+    height: 100%;
+    background-image: url("../../assets/purpletrain.jpg");
+    background-position: right;
+}

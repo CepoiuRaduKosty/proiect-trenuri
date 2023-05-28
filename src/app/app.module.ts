@@ -88,7 +88,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatSnackBarModule,
     MatDividerModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

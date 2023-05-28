@@ -1,7 +1,9 @@
-<h1 *ngIf="!fetchedTable">Cauta traseu</h1>
-<app-page-list-form *ngIf="!fetchedTable" (submitted)="submitHandler($event)"></app-page-list-form>
+<div class="container">
+    <h1 *ngIf="!fetchedTable">Cauta traseu</h1>
+    <app-page-list-form *ngIf="!fetchedTable" (submitted)="submitHandler($event)"></app-page-list-form>
 
-<h1 *ngIf="fetchedTable">Lista rute</h1>
-<app-page-list-result *ngIf="fetchedTable" [fetchedData]="trasee"></app-page-list-result>
-<button mat-raised-button color="primary" *ngIf="fetchedTable" (click)="fetchedTable = false">Cauta alt traseu</button>
+    <h1 *ngIf="fetchedTable">Lista rute</h1>
+    <button mat-stroked-button color="primary" *ngIf="fetchedTable" (click)="fetchedTable = false">Cauta alt traseu</button>
+    <app-page-list-result *ngIf="fetchedTable" [fetchedData]="trasee"></app-page-list-result>
+</div>
 

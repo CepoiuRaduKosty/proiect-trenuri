@@ -1,25 +1,41 @@
-<mat-form-field appearance="fill">
-    <mat-label>Start</mat-label>
-    <input matInput [(ngModel)]="start">
-</mat-form-field>
-<mat-form-field appearance="fill">
-    <mat-label>Destinatie</mat-label>
-    <input matInput [(ngModel)]="end">
-</mat-form-field>
-<mat-checkbox [(ngModel)]="wantsAdvancedSearch" name="advancedSearchToggle">Cautare avansata</mat-checkbox>
-<button mat-raised-button color="primary" (click)="onSend($event)">Cauta</button>
-
-<div *ngIf="wantsAdvancedSearch">
-    <p>Data si ora plecarii</p>
-    <mat-form-field>
-        <mat-label>Data plecarii</mat-label>
-        <input matInput [matDatepicker]="picker1" [(ngModel)]="dataPlecare">
-        <mat-hint>MM/DD/YYYY</mat-hint>
-        <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
-        <mat-datepicker #picker1></mat-datepicker>
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Ora plecarii</mat-label>
-        <input matInput type="time" value="00:00" [(ngModel)]="oraPlecare">
-    </mat-form-field>
+<div style="min-width: 100%;" (window:resize)="chooseWhenResize()">
+    <mat-grid-list [cols]="colnumber" rowHeight="400px">
+        <mat-grid-tile>
+            <div class="leftGrid">
+                <mat-form-field appearance="fill">
+                    <mat-label>Start</mat-label>
+                    <input matInput [(ngModel)]="start">
+                </mat-form-field>
+                <div class="iconContainer">
+                    <mat-icon fontIcon="arrow_downward"></mat-icon>
+                </div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Destinatie</mat-label>
+                    <input matInput [(ngModel)]="end">
+                </mat-form-field>
+                <mat-checkbox [(ngModel)]="wantsAdvancedSearch" name="advancedSearchToggle">Cautare avansata</mat-checkbox>
+                <br />
+                <button mat-raised-button color="primary" (click)="onSend($event)">Cauta</button>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile *ngIf="rightPanelCheck()">
+            <div *ngIf="wantsAdvancedSearch">
+                <p>Data si ora plecarii</p>
+                <mat-form-field>
+                    <mat-label>Data plecarii</mat-label>
+                    <input matInput [matDatepicker]="picker1" [(ngModel)]="dataPlecare">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
+                </mat-form-field>
+                <br />
+                <mat-form-field>
+                    <mat-label>Ora plecarii</mat-label>
+                    <input matInput type="time" value="00:00" [(ngModel)]="oraPlecare">
+                </mat-form-field>
+            </div>
+            <div *ngIf="wantsAdvancedSearch == false && lowWidth == false" class="rightGrid">
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
 </div>
