@@ -42,7 +42,8 @@ export class FirestoreDbService {
         let traseuDate = (doc.data() as Bilet).date.toDate();
         if(traseuDate.getDay() == dataCalatorie.getDay() &&
            traseuDate.getMonth() == dataCalatorie.getMonth() &&
-           traseuDate.getFullYear() == dataCalatorie.getFullYear()){
+           traseuDate.getFullYear() == dataCalatorie.getFullYear() &&
+           (doc.data() as Bilet).traseuId == _traseuId){
             ret = true;
         }
       });
