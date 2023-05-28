@@ -1,22 +1,27 @@
-<div class="login-page-wrapper">
-  <div class="login-left-side">
-    <h1>Login</h1>
-    <form class="login-form">
-      <mat-form-field>
-        <mat-label>E-mail</mat-label>
-        <input matInput type="email" placeholder="username@mail.com" [(ngModel)]="email" name="emailForm">
-      </mat-form-field>
-      <br>
-      <mat-form-field>
-        <mat-label>Password</mat-label>
-        <input matInput type="password" [(ngModel)]="password" name="emailPassword">
-      </mat-form-field>
-      <br>
-      <button mat-raised-button color="accent" (click)="clickLogin()">Login</button>
-      <a routerLink="/signup" routerLinkActive="active"><button mat-raised-button color="primary">Create Account</button></a>
-    </form>
-  </div>
-
-  <div class="login-right-side">
-  </div>
+<div style="min-width: 100%;" (window:resize)="chooseWhenResize()">
+  <mat-grid-list [cols]="colnumber" rowHeight="400px">
+      <mat-grid-tile>
+          <div class="leftGrid">
+              <h1>Login</h1>
+              <form class="login-form">
+                <mat-form-field>
+                  <mat-label>E-mail</mat-label>
+                  <input matInput type="email" placeholder="username@mail.com" [(ngModel)]="email" name="emailForm">
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                  <mat-label>Password</mat-label>
+                  <input matInput type="password" [(ngModel)]="password" name="emailPassword">
+                </mat-form-field>
+                <br>
+                <button mat-raised-button color="accent" (click)="clickLogin()">Login</button>
+                <a routerLink="/signup" routerLinkActive="active"><button mat-raised-button color="primary">Create Account</button></a>
+              </form>
+          </div>
+      </mat-grid-tile>
+      <mat-grid-tile *ngIf="rightPanelCheck()">
+        <div class="login-right-side">
+        </div>
+      </mat-grid-tile>
+  </mat-grid-list>
 </div>

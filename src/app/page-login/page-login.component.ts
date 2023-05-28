@@ -21,6 +21,10 @@ export class PageLoginComponent {
   email: string = "";
   password: string = "";
 
+  respWidth = 600;
+  colnumber: string = "2";
+  lowWidth = false;
+
   async clickLogin(){
     this.svcAuth.signIn(this.email, this.password)
       .then(() => {
@@ -43,5 +47,24 @@ export class PageLoginComponent {
             this.password = "";
           });
       })
+  }
+
+  constructor(){
+    this.chooseWhenResize();
+  }
+
+  chooseWhenResize(){
+    if(window.innerWidth > this.respWidth){
+      this.colnumber = "2";
+      this.lowWidth = false;
+    }
+    else {
+      this.colnumber = "1";
+      this.lowWidth = true;
+    }
+  }
+
+  rightPanelCheck():boolean{
+    return this.lowWidth == false;
   }
 }
