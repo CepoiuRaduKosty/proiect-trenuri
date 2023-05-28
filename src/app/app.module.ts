@@ -45,7 +45,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatDividerModule} from '@angular/material/divider'; 
 import {MatCardModule} from '@angular/material/card'; 
 import {MatGridListModule} from '@angular/material/grid-list'; 
-
+import {MatPaginatorModule} from '@angular/material/paginator';
 @NgModule({
   declarations: [
     AppComponent,
@@ -89,7 +89,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatDividerModule,
     MatCardModule,
     MatGridListModule,
-    MatIconModule
+    MatIconModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

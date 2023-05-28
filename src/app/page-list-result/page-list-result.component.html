@@ -1,10 +1,32 @@
-<table>
-    <tr *ngFor="let traseu of fetchedData">
-        <td>{{traseu.start}}</td>
-        <td>{{traseu.end}}</td>
-        <td>{{traseu.tren}}</td>
-        <td>{{traseu.zileValabil}}</td>
-        <td>{{traseu.oraPlecare}}:{{traseu.minutPlecare}}</td>
-        <td><button mat-raised-button color="accent" (click)="clickCumparaBilet(traseu)">Cumpara Bilet</button></td>
-    </tr>
+<table mat-table [dataSource]="dataSource" style="width: 100%;">
+    <ng-container matColumnDef="start">
+        <th mat-header-cell *matHeaderCellDef> Start </th>
+        <td mat-cell *matCellDef="let traseu"> {{traseu.start}} </td>
+    </ng-container>
+    <ng-container matColumnDef="end">
+        <th mat-header-cell *matHeaderCellDef> Destinatie </th>
+        <td mat-cell *matCellDef="let traseu"> {{traseu.end}} </td>
+    </ng-container>
+    <ng-container matColumnDef="tren">
+        <th mat-header-cell *matHeaderCellDef> Tren </th>
+        <td mat-cell *matCellDef="let traseu"> {{traseu.tren}} </td>
+    </ng-container>
+    <ng-container matColumnDef="zileValabil">
+        <th mat-header-cell *matHeaderCellDef> Zile </th>
+        <td mat-cell *matCellDef="let traseu"> {{calcZileValabil(traseu)}} </td>
+    </ng-container>
+    <ng-container matColumnDef="ora">
+        <th mat-header-cell *matHeaderCellDef> Ora Plecare </th>
+        <td mat-cell *matCellDef="let traseu"> {{traseu.oraPlecare}}:{{traseu.minutPlecare}} </td>
+    </ng-container>
+    <ng-container matColumnDef="btn">
+        <th mat-header-cell *matHeaderCellDef> Actiune </th>
+        <td mat-cell *matCellDef="let traseu"> <button mat-raised-button color="accent" (click)="clickCumparaBilet(traseu)">Cumpara Bilet</button></td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+<mat-paginator [pageSizeOptions]="[5, 10, 20]"
+showFirstLastButtons
+aria-label="Select page of periodic elements">
+</mat-paginator>
