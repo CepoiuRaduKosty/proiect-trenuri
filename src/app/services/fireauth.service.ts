@@ -50,5 +50,6 @@ export class FireAuthService {
 
     async signOutUser(){
         await signOut(this.auth);
+        this.user=undefined;
     }
 }
